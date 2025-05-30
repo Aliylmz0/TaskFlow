@@ -1,0 +1,34 @@
+@TaskFlow_HostAddress = http://localhost:5001
+
+### Tüm görevleri getir
+GET {{TaskFlow_HostAddress}}/api/task
+Accept: application/json
+
+### ID ile görev getir
+GET {{TaskFlow_HostAddress}}/api/task/1
+Accept: application/json
+
+### Yeni görev oluştur
+POST {{TaskFlow_HostAddress}}/api/task
+Content-Type: application/json
+
+{
+  "title": "Kod yaz",
+  "description": "Servis katmanını test et",
+  "userId": "dev123"
+}
+
+### Görev güncelle
+PUT {{TaskFlow_HostAddress}}/api/task/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Kod yaz (güncellendi)",
+  "description": "Servis katmanı tamamlandı",
+  "userId": "dev123",
+  "isCompleted": true
+}
+
+### Görev sil
+DELETE {{TaskFlow_HostAddress}}/api/task/1
